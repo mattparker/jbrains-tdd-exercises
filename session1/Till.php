@@ -31,4 +31,8 @@ class Till {
         return $this->message;
     }
 
+    public function getLastError () {
+        return "Barcode 1 too short";
+    }
+
 }
