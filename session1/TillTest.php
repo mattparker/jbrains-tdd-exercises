@@ -60,7 +60,12 @@ class TillTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("", $error);
     }
 
-    public function test_invalid_barcodes_dont_send_a_price () {}
+    public function test_invalid_barcodes_dont_send_a_price () {
+        $till = new Till();
+        $till->onBarcode("1");
+        $output = $till->getLastMessage();
+        $this->assertEquals("", $output);
+    }
 
     public function test_barcodes_containing_one_nondigit_are_invalid () {}
 
