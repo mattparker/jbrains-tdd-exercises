@@ -67,7 +67,12 @@ class TillTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("", $output);
     }
 
-    public function test_barcodes_containing_one_nondigit_are_invalid () {}
+    public function test_barcodes_containing_one_nondigit_are_invalid () {
+        $till = new Till();
+        $till->onBarcode("123456a");
+        $error = $till->getLastError();
+        $this->assertEquals("Barcode 123456a contains non-numerical characters", $error);
+    }
 
 
 
