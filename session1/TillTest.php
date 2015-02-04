@@ -18,7 +18,12 @@ class TillTest extends PHPUnit_Framework_TestCase {
 
     }
 
-    public function test_we_output_the_price_when_we_receive_a_barcode () {}
+    public function test_we_output_the_price_when_we_receive_a_barcode () {
+        $till = new Till();
+        $till->onBarcode("1234567890");
+
+        $output = $till->getLastMessage();
+    }
 
     public function test_barcodes_are_not_too_short () {}
 
