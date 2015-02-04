@@ -23,6 +23,7 @@ class TillTest extends PHPUnit_Framework_TestCase {
         $till->onBarcode("1234567890");
 
         $output = $till->getLastMessage();
+        $this->assertEquals("$14.99", $output);
     }
 
     public function test_barcodes_are_not_too_short () {}
