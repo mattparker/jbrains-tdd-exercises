@@ -16,7 +16,17 @@
 class Till {
 
 
+    /**
+     * @param $barcode_string string
+     */
     public function onBarcode ($barcode_string) {
+
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastMessage () {
 
     }
 
