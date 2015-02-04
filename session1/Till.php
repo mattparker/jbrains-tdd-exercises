@@ -51,6 +51,9 @@ class Till {
             $this->error = sprintf("Barcode %s too long", $barcode_string);
             return false;
         }
+        if (!preg_match('%^[\d]+%', $barcode_string)) {
+            $this->error = sprintf("Barcode %s contains non-numerical characters", $barcode_string);
+        }
         return true;
     }
 
