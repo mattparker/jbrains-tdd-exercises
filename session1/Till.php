@@ -23,16 +23,37 @@ class Till {
      */
     public function onBarcode ($barcode_string) {
 
+        if (!$this->guardBarcode($barcode_string)) {
+            return;
+        }
+
+        $this->message = '$14.99';
+    }
+
+
+    /**
+     * Checks the validity of the barcode string.
+     *
+     * This could be refactored out into a Barcode VO
+     * but not sure it's worth it atm.
+     *
+     * @param $barcode_string
+     *
+     * @return bool
+     */
+    private function guardBarcode ($barcode_string) {
+
         if (strlen($barcode_string) <= 6) {
             $this->error = sprintf("Barcode %s too short", $barcode_string);
-            return;
+            return false;
         }
         if (strlen($barcode_string) >= 15) {
             $this->error = sprintf("Barcode %s too long", $barcode_string);
-            return;
+            return false;
         }
-        $this->message = '$14.99';
+        return true;
     }
+
 
     /**
      * @return string
