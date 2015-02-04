@@ -26,6 +26,12 @@ class TillTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("$14.99", $output);
     }
 
+    public function test_there_is_no_output_when_we_dont_scan_anything () {
+        $till = new Till();
+        $output = $till->getLastMessage();
+        $this->assertEquals("", $output);
+    }
+
     public function test_barcodes_are_not_too_short () {}
 
     public function test_barcodes_are_not_too_long () {}
