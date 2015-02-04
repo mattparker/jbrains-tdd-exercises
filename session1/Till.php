@@ -16,4 +16,8 @@
 class Till {
 
 
+    public function onBarcode ($barcode_string) {
+
+    }
+
 }
