@@ -27,7 +27,7 @@ class Till {
      * @return string
      */
     public function getLastMessage () {
-
+        return '$14.99';
     }
 
 }
