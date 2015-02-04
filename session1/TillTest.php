@@ -12,7 +12,11 @@ class TillTest extends PHPUnit_Framework_TestCase {
         new Till();
     }
 
-    public function test_we_can_send_a_barcode () {}
+    public function test_we_can_send_a_barcode () {
+        $till = new Till();
+        $till->onBarcode("1234567890");
+
+    }
 
     public function test_barcodes_are_not_too_short () {}
 
