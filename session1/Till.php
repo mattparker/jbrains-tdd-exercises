@@ -24,7 +24,12 @@ class Till {
     public function onBarcode ($barcode_string) {
 
         if (strlen($barcode_string) <= 6) {
-            $this->error = sprintf("Barcode %d too short", $barcode_string);
+            $this->error = sprintf("Barcode %s too short", $barcode_string);
+            return;
+        }
+        if (strlen($barcode_string) >= 15) {
+            $this->error = sprintf("Barcode %s too long", $barcode_string);
+            return;
         }
         $this->message = '$14.99';
     }
