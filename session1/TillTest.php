@@ -46,7 +46,12 @@ class TillTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("Barcode 123456789012345 too long", $error);
     }
 
-    public function test_barcodes_are_numbers_only () {}
+    public function test_barcodes_are_numbers_only () {
+        $till = new Till();
+        $till->onBarcode("abcdefgh");
+        $error = $till->getLastError();
+        $this->assertEquals("Barcode abcdefgh contains non-numerical characters");
+    }
 
 
 
