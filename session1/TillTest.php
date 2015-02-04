@@ -1,5 +1,5 @@
 <?php
-
+require_once 'Till.php';
 
 /**
  * Class TillTest
@@ -8,7 +8,9 @@
 class TillTest extends PHPUnit_Framework_TestCase {
 
 
-    public function test_instance () {}
+    public function test_instance () {
+        new Till();
+    }
 
     public function test_we_can_send_a_barcode () {}
 
