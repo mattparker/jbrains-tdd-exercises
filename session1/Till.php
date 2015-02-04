@@ -43,6 +43,7 @@ class Till {
      */
     private function guardBarcode ($barcode_string) {
 
+        $barcode_string = trim($barcode_string);
         if (strlen($barcode_string) <= 6) {
             $this->error = sprintf("Barcode %s too short", $barcode_string);
             return false;
@@ -51,8 +52,10 @@ class Till {
             $this->error = sprintf("Barcode %s too long", $barcode_string);
             return false;
         }
-        if (!preg_match('%^[\d]+%', $barcode_string)) {
+
+        if (0 === preg_match('/^[0-9]+$/', $barcode_string, $matches)) {
             $this->error = sprintf("Barcode %s contains non-numerical characters", $barcode_string);
+            return false;
         }
         return true;
     }
