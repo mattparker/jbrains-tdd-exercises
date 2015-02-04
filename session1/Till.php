@@ -15,8 +15,17 @@
  */
 class Till {
 
+
+    /**
+     * @var string
+     */
     private $error = '';
+
+    /**
+     * @var string
+     */
     private $message = '';
+
 
     /**
      * @param $barcode_string string
@@ -28,6 +37,23 @@ class Till {
         }
 
         $this->message = '$14.99';
+    }
+
+
+
+    /**
+     * @return string
+     */
+    public function getLastMessage () {
+        return $this->message;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getLastError () {
+        return $this->error;
     }
 
 
@@ -58,18 +84,6 @@ class Till {
             return false;
         }
         return true;
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getLastMessage () {
-        return $this->message;
-    }
-
-    public function getLastError () {
-        return $this->error;
     }
 
 }
