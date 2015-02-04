@@ -15,19 +15,20 @@
  */
 class Till {
 
+    private $message = '';
 
     /**
      * @param $barcode_string string
      */
     public function onBarcode ($barcode_string) {
-
+        $this->message = '$14.99';
     }
 
     /**
      * @return string
      */
     public function getLastMessage () {
-        return '$14.99';
+        return $this->message;
     }
 
 }
